@@ -1,0 +1,5 @@
+export const Template = `I am writing, as your constituent, because I am concerned about attempts to introduce legislation into Parliament that would criminalise paying for sex and close down online sites where sex workers advertise. Touted as solutions to sex trafficking and exploitation, these measures will only exacerbate violence against women, including those who are being exploited.
+
+Legislation that criminalises the purchase of sex is known as ‘the Nordic Model’, or ‘End Demand’. It is widely opposed by sex workers and by organisations such as Amnesty International, the World Health Organisation, and the UK’s national frontline charity for sex worker safety, National Ugly Mugs. In countries where this legal model has been introduced, neither sex workers nor sex worker-led organisations have been consulted. Clear documented harm to the most marginalised women has followed.
+
+Criminalising advertising sexual services online has been proven to exacerbate harm for sex workers. This is shown by evidence from the United States where similar legislation (SESTA/FOSTA) was introduced in 2018.`
