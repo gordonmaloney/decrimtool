@@ -49,6 +49,7 @@ align-items: center;
 border-radius: 16px;
 backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(5px);
+border: 2px solid #DB71A2
 }
 
 

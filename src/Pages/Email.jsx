@@ -37,7 +37,7 @@ export const Email = ({constituency, postcode}) => {
 
     if (prop !== "gmail" && prop !== "yahoo") {
       let sendLink = `mailto:${MP.email}?subject=${subject}&bcc=${bcc}&body=${encodeURIComponent(
-        message
+        message + '\n\n' + signOff
       )}`;
 
       window.open(sendLink);
@@ -45,14 +45,14 @@ export const Email = ({constituency, postcode}) => {
 
     if (prop == "gmail") {
       let sendLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${MP.email}?subject=${subject}&bcc=${bcc}&body=${encodeURIComponent(
-        message
+        message + '\n\n' + signOff
       )}`;
       window.open(sendLink);
     }
 
     if (prop == "yahoo") {
       let sendLink = `http://compose.mail.yahoo.com/?To=${MP.email}?Subject=${subject}&bcc=${bcc}&Body=${encodeURIComponent(
-        message
+        message + '\n\n' + signOff
       )}`;
       window.open(sendLink);
     }
@@ -135,7 +135,7 @@ export const Email = ({constituency, postcode}) => {
 
         <Grid item xs={12}>
 <center> 
-  {attemptSend && <>You need to give them some of your details to show you're a real person and a constituent, or your MP will just ignore your message!<br/></>}
+  {attemptSend && <div style={{width: '70%', minWidth: '280px', color: 'red', margin: '5px auto'}}>You need to give them some of your details to show you're a real person and a constituent, or your MP will just ignore your message!<br/></div>}
   
        <Button sx={BtnStyle}
             onClick={() => {

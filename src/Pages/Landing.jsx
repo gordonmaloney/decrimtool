@@ -60,6 +60,11 @@ export const Landing = () => {
     }
   }, [constituency]);
 
+
+  useEffect(() => {
+    if (invalidPC) {setInvalidPC(false)}
+  }, [postcode])
+
   return (
     <div>
       
@@ -91,6 +96,8 @@ There are repeated and ongoing attempts to introduce criminalisation of the purc
       onChange={(e) => setPostcode(e.target.value)}
                     />
 </div>
+
+{invalidPC && <div style={{margin: '0 0 5px 0', color: 'red'}}>It looks like this postcode isn't valid. Please try again.</div>}
 
 <Button sx={BtnStyle}
 onClick={() => fetchPostcodeData()}
