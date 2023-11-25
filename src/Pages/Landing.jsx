@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import {BtnStyle, TextFieldStyle} from '../Shared.jsx'
 import { Email } from './Email.jsx';
+import { WhyAccordion } from '../Components/WhyAccordion.jsx';
 
 export const Landing = () => {
 
@@ -65,19 +66,24 @@ export const Landing = () => {
     if (invalidPC) {setInvalidPC(false)}
   }, [postcode])
 
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [constituency])
+
   return (
     <div>
       
       <div className="landingContainer">
-        <center><h1 className="moon">
+        <center><h2 className="moon">
           WRITE TO YOUR MP
-        </h1></center>
+        </h2></center>
 
 
 {!constituency && <>
-
-There are repeated and ongoing attempts to introduce criminalisation of the purchase of sex (a form of legislation sometimes known as the Nordic Model) across the UK. Similar legislation already exists in Northern Ireland. Most recently, Labour MP Diana Johnson called for amendments to the already troubling Police, Crime, Sentencing and Courts Bill. Johnson is calling for the criminalisation of the purchase of sex and for the websites on which sex workers advertise to be made illegal. While Johnson claims these measures will combat sex trafficking, the evidence suggests otherwise.
-
+The evidence is clear: criminalisation makes sex workers less safe. Despite this, there are repeated attempts to further criminalise sex work in the U.K. by instituting the 'Nordic Model'.
+<br/>
+<br/>
+Use the tool to send an email to your MP opposing this, and join sex workers’ call for the full decriminalisation of sex work.
 
 <center><h4 className="moon">ENTER YOUR POSTCODE TO START</h4>
 
@@ -103,6 +109,10 @@ There are repeated and ongoing attempts to introduce criminalisation of the purc
 onClick={() => fetchPostcodeData()}
 >START</Button>
 </center>
+
+<WhyAccordion />
+
+
 </>}
 
 

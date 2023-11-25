@@ -16,7 +16,7 @@ const ModalStyle = {
   padding: "15px",
   backgroundColor: "#DCD5D8",
   borderRadius: "0",
-  border: '2px solid #DB71A2',
+  border: '2px solid #E91F41',
   backdropFilter: "blur(15px)",
 };
 

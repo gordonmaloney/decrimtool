@@ -13,7 +13,10 @@ body {
   background-repeat:repeat;
   background-size: 200px;
   background-position: center;
+  overflow-y: overlay;
+
 }
+
 
 @font-face {
   font-family: 'moon-get';
@@ -25,18 +28,24 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #DB71A2;
+  color: #E91F41;
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 
+
+
 .header {
-  background: #DB71A2;
+  background: #E91F41;
   top: 0;
-  width: 100vw;
+  width: 100%;
 height: 60px;
 display: flex;
 align-items: center;
 
+}
+
+a {
+  color: #E91F41
 }
 
 .landingContainer {
@@ -49,7 +58,7 @@ align-items: center;
 border-radius: 16px;
 backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(5px);
-border: 2px solid #DB71A2
+border: 2px solid #E91F41
 }
 
 

@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Grid, TextField, Button } from '@mui/material'
 import { TextFieldStyle, BtnStyle } from '../Shared'
 import { MPs } from '../MPs'
 import { SendModal } from './SendModal'
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {ShareDonateModal} from './ShareDonateModal'
-import { Template } from '../Message'
+import { Template, Links } from '../Message'
 
 export const Email = ({constituency, postcode}) => {
   const Mobile = useMediaQuery("(max-width:900px)");
@@ -14,9 +14,33 @@ export const Email = ({constituency, postcode}) => {
 
 
   const [subject, setSubject] = useState("Stop the Nordic Model")
+
+  //randomise SL
+  useEffect(() => {
+    switch (Math.floor(Math.random()*5)+1) {
+      case 1:
+        setSubject("Stop the Nordic Model")
+        break
+      case 2:
+        setSubject("The 'Nordic Model' doesn't work")
+        break
+      case 3:
+        setSubject("Decriminalisation makes sex workers safer")
+        break
+      case 4:
+        setSubject("Listen to the evidence and the experts on sex work")
+        break
+      case 5:
+        setSubject("Criminalisation doesn't work")
+        break
+    }
+  }, [])
+
+
   const [message, setMessage] = useState(Template)
   const bcc = "test@test.com"
-  const [signOff, setSignOff] = useState(`Sincerely\n\n${postcode}`)
+  const [signOff, setSignOff] = useState(`Yours sincerely,\n\n${postcode}`)
+
 
   const [attemptSend, setAttemptSend] = useState(false)
 
@@ -37,7 +61,7 @@ export const Email = ({constituency, postcode}) => {
 
     if (prop !== "gmail" && prop !== "yahoo") {
       let sendLink = `mailto:${MP.email}?subject=${subject}&bcc=${bcc}&body=${encodeURIComponent(
-        message + '\n\n' + signOff
+        message + '\n\n' + signOff + '\n\n' + Links
       )}`;
 
       window.open(sendLink);
@@ -45,14 +69,14 @@ export const Email = ({constituency, postcode}) => {
 
     if (prop == "gmail") {
       let sendLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${MP.email}?subject=${subject}&bcc=${bcc}&body=${encodeURIComponent(
-        message + '\n\n' + signOff
+        message + '\n\n' + signOff + '\n\n' + Links
       )}`;
       window.open(sendLink);
     }
 
     if (prop == "yahoo") {
       let sendLink = `http://compose.mail.yahoo.com/?To=${MP.email}?Subject=${subject}&bcc=${bcc}&Body=${encodeURIComponent(
-        message + '\n\n' + signOff
+        message + '\n\n' + signOff + '\n\n' + Links
       )}`;
       window.open(sendLink);
     }
@@ -87,7 +111,8 @@ export const Email = ({constituency, postcode}) => {
                       id="to"
                       fullWidth
                       sx={TextFieldStyle}
-                      value={`No to the Nordic Model`}
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
           
                     />
         </Grid>
@@ -139,7 +164,7 @@ export const Email = ({constituency, postcode}) => {
   
        <Button sx={BtnStyle}
             onClick={() => {
-              if (signOff == `Sincerely\n\n${postcode}`) {setAttemptSend(true)}
+              if (signOff == `Yours sincerely,\n\n${postcode}`) {setAttemptSend(true)}
               else {
               setIsSendOpen(true)}}}
 
